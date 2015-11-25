@@ -2,27 +2,22 @@ import urllib2
 import random
 import string
 
+letters = "abcdefghijklmnopqrstuvwxyz"
 
-def randstring():
-	url = "http://www."
-	i = 0
-	while i < 5:
-		url = url + random.choice(string.ascii_lowercase)
-		i += 1
-	url = url + ".com"
-	return url
 
-b = 0
-while b < 30:
-	url = randstring();
-	try:
-	    urllib2.urlopen(url)
-	    with open("Output.txt", "a") as myfile:
-	   		myfile.write(url + "\n")
-	   		b+=1
-	   		print b
-	except:
-		pass
+for j in "abcdefghijklm":
+	for k in letters:
+		for l in letters:
+			url = "http://www."+i+j+k+l+".com"
+			print url
+			try:
+			    urllib2.urlopen(url)
+			    with open("output.txt", "a") as myfile:
+			   		myfile.write(url + "\n")
+			   		b+=1
+			   		print b
+			except:
+				pass
 
 
 
